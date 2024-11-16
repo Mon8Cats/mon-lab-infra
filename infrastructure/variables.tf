@@ -32,3 +32,24 @@ variable "cicd_sa_role_list" {
   #default     = ["value1", "value2", "value3"]  # optional default value
 }
 
+# workload identity
+
+variable "wi_pool_id" {
+  description = "The Workload Identity Pool Id"
+  type        = string
+}
+
+variable "wi_pool_name" {
+  description = "The Workload Identity Pool Name"
+  type        = string
+}
+
+variable "wi_pool_provider_id" {
+  description = "The Workload Identity Provider Id"
+  type        = string
+}
+
+variable "github_repository" {
+  description = "The region for the resources"
+  type        = string
+}

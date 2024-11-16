@@ -5,6 +5,7 @@
 
 
 pre_api_list   = [
+    "cloudresourcemanager.googleapis.com", # or use gcloud, cloud console?
     "storage.googleapis.com",
 ]
 

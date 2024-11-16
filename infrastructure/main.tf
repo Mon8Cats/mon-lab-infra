@@ -13,15 +13,30 @@ module "enable_apis" {
 }
 
 
+
 # (2) create a service account for CICD
-module "my_service_account" {
+module "cicd_service_account" {
   source               = "../modules/b03_service_account"
   project_id           = var.project_id
   service_account_name = var.cicd_sa_name
-  display_name         = "My Terraform Service Account"
-  description          = "This service account is used for CI/CD operations"
+  display_name         = "Infra CICD Service Account"
+  description          = "This service account is used for Infra CI/CD operations"
 
   roles = var.cicd_sa_role_list
+
+  depends_on   = [module.enable_apis]
 }
 
+# (3) create workload identity pool
+module "workloadidentity" {
+  source           = "../modules/b04_workload_identity"
+  project_id = var.project_id
+  wi_pool_id = var.wi_pool_id
+  wi_pool_name = var.wi_pool_name
+  wi_pool_provider_id = var.wi_pool_provider_id
+  github_repository = var.github_repository
+  service_account_id = "projects/${var.project_id}/serviceAccounts/${var.cicd_sa_name}@${var.project_id}.iam.gserviceaccount.com"
+
+  depends_on   = [module.cicd_service_account]
+}
 

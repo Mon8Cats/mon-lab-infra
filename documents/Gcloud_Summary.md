@@ -81,3 +81,8 @@ TITLE: Cloud Storage
 
 NAME: storage.googleapis.com
 TITLE: Cloud Storage API
+
+
+### Cloud RESOURCE MANAGER
+gcloud services enable cloudresourcemanager.googleapis.com --project=mon-cloud-lab
+(it takes time and if not enabled -> it causes a lot problem)

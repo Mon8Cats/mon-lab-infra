@@ -10,6 +10,7 @@
 
 # (2) api list
 api_list   = [
+    "cloudresourcemanager.googleapis.com", # to manage GCP resources
     "storage.googleapis.com",
     "iam.googleapis.com", # to create service account
 
@@ -31,7 +32,7 @@ api_list   = [
 
 
 #(3) service acaccount and roles
-cicd_sa_name = "cicd-sa"
+cicd_sa_name = "infra-cicd-sa"
 
 cicd_sa_role_list = [
   "roles/cloudbuild.builds.builder",
@@ -58,3 +59,8 @@ cicd_sa_role_list = [
   #"roles/secretmanager.secretCreator"
 ]
 
+# (4) Workload Identity
+wi_pool_id = "app-github-cicd-pool"
+wi_pool_name = "app-github-cicd-pool"
+wi_pool_provider_id = "app-github-provider"
+github_repository      = "Mon8Cats/mon-lab-infra"

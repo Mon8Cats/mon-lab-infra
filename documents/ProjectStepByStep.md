@@ -10,7 +10,7 @@
 
 ## B. Create a GCP Storage Bucket for Terraform backend
 
-- Enable necessary GCP APIs.
+- Enable necessary GCP APIs. (Manually enable APIs like "cloudresourcemanager.googleapis.com")
 - Create a GCP Storage Bucket with a globally unique name.
 - Copy the terraform configs into the Cloud Shell
 - Setup environment variables in the Cloud Shell, run terraform config files.
@@ -26,11 +26,16 @@ export TF_VAR_bucket_name="my-storage-bucket"
 ## C. Configure an Infrastructure CICD Pipeline 
 
 - Setup the terraform backend with the created bucket (cannot use a variable)
-
+- Create a service account for infra CICD pipeline with proper roles.
+- Create a Workload Identity for Github account
+- 
 
 
 
 ## D. Configure an Application CICD Pipeline
+
+- Enable APIs
+- Serete cicd-infra-sa service account
 
 ## E. Develop an Application
 

@@ -9,6 +9,7 @@ module "eanble_apis" {
 }
 
 
+/*
 module "terraform_backend_bucket" {
   source                  = "../modules/a02_gcs_bucket"
   project_id              = var.project_id
@@ -25,4 +26,7 @@ module "terraform_backend_bucket" {
       condition   = { age = 365 }
     }
   ]
+
+  depends_on   = [module.enable_apis]
 }
+*/
