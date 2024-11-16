@@ -86,3 +86,11 @@ TITLE: Cloud Storage API
 ### Cloud RESOURCE MANAGER
 gcloud services enable cloudresourcemanager.googleapis.com --project=mon-cloud-lab
 (it takes time and if not enabled -> it causes a lot problem)
+
+
+
+
+gcloud secrets list --project="YOUR_PROJECT_ID"
+gcloud secrets list --filter="name:my-github-token" --project="YOUR_PROJECT_ID"
+gcloud secrets list --format=json --project="YOUR_PROJECT_ID"
+gcloud secrets versions list my-github-token --project="YOUR_PROJECT_ID"

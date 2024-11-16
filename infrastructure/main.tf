@@ -1,5 +1,5 @@
 /* No space around =
-export TF_VAR_project_id="mon8cats-cloud-lab"
+export TF_VAR_project_id="mon-cloud-lab"
 export TF_VAR_region="us-central1"
 echo $TF_VAR_project_id
 echo $TF_VAR_region
@@ -37,7 +37,7 @@ module "workloadidentity" {
   github_repository = var.infra_github_repository
   service_account_id = "projects/${var.project_id}/serviceAccounts/${var.infra_cicd_sa_name}@${var.project_id}.iam.gserviceaccount.com"
 
-  depends_on   = [module.cicd_service_account]
+  depends_on   = [module.ifra_cicd_service_account]
 }
 
 # (5) secrete manager
@@ -52,3 +52,14 @@ module "github_token_secret_access" {
   secret_id = var.github_secret_id
   service_account_email = local.infra_cicd_service_account_email
 }
+
+
+# create token in GitHub (settings/developer settings/Personal access tokens/classic)
+# save the token in GCP Secrete manager
+
+#echo -n "tokenvalue" | gcloud secrets versions add github_token \
+#  --data-file=- \
+#  --project="mon-cloud-lab"
+#gcloud secrets versions access latest --secret="github_token" --project="mon-cloud-lab"
+
+

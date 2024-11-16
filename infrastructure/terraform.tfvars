@@ -10,11 +10,11 @@
 
 # (2) api list
 api_list   = [
-    "cloudresourcemanager.googleapis.com", # to manage GCP resources
+    "cloudresourcemanager.googleapis.com", # manually enabled
     "storage.googleapis.com",
     "iam.googleapis.com", # to create service account
     "cloudbuild.googleapis.com",
-    "secretmanager.googleapis.com",
+    "secretmanager.googleapis.com", # manually enabled
 
     #"iamcredentials.googleapis.com",
     #"cloudbuild.googleapis.com",
