@@ -85,3 +85,7 @@ infra_github_repository      = "Mon8Cats/mon-lab-infra"
 
 # (5) Secret
 github_secret_id = "github_token"
+
+# (6) github connection
+github_app_installation_id = "55957239"
+github_connection_name = "github_connection"

@@ -55,7 +55,17 @@ variable "infra_github_repository" {
 }
 
 
+variable "github_connection_name" {
+  description = "The region for the resources"
+  type        = string
+}
+
 variable "github_secret_id" {
+  description = "The region for the resources"
+  type        = string
+}
+
+variable "github_app_installation_id" {
   description = "The region for the resources"
   type        = string
 }

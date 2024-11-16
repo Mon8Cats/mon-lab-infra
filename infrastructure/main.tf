@@ -37,7 +37,7 @@ module "workloadidentity" {
   github_repository = var.infra_github_repository
   service_account_id = "projects/${var.project_id}/serviceAccounts/${var.infra_cicd_sa_name}@${var.project_id}.iam.gserviceaccount.com"
 
-  depends_on   = [module.ifra_cicd_service_account]
+  depends_on   = [module.infra_cicd_service_account]
 }
 
 # (5) secrete manager
@@ -63,3 +63,18 @@ module "github_token_secret_access" {
 #gcloud secrets versions access latest --secret="github_token" --project="mon-cloud-lab"
 
 
+module "github_connection" {
+  source = "../modules/c07_cloudbuild_connection"
+
+  project_id               = var.project_id
+  region                   = var.region
+  github_app_installation_id = var.github_app_installation_id
+  connection_name = var.github_connection_name
+  secret_id = var.github_secret_id
+
+  # Pass the providers explicitly
+  providers = {
+    google      = google
+    google-beta = google-beta
+  }
+}
