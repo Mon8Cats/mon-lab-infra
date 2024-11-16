@@ -13,12 +13,13 @@ api_list   = [
     "cloudresourcemanager.googleapis.com", # to manage GCP resources
     "storage.googleapis.com",
     "iam.googleapis.com", # to create service account
-
+    "cloudbuild.googleapis.com",
+    "secretmanager.googleapis.com",
 
     #"iamcredentials.googleapis.com",
     #"cloudbuild.googleapis.com",
     #"artifactregistry.googleapis.com",
-    #"secretmanager.googleapis.com",
+    
     #"cloudresourcemanager.googleapis.com",
 
     #"compute.googleapis.com",          # Compute Engine API
@@ -31,11 +32,25 @@ api_list   = [
   ]
 
 
-#(3) service acaccount and roles
-cicd_sa_name = "infra-cicd-sa"
+#(3) infra cicd service account and roles
+infra_cicd_sa_name = "infra-cicd-sa"
 
-cicd_sa_role_list = [
-  "roles/cloudbuild.builds.builder",
+infra_cicd_sa_role_list = [
+  "roles/cloudbuild.builds.editor",
+  "roles/storage.admin",
+  "roles/secretmanager.secretAccessor",
+  "roles/iam.serviceAccountUser",
+  "roles/resourcemanager.projectIamAdmin",
+  "roles/viewer",
+  "roles/compute.admin",
+  "roles/iam.serviceAccountKeyAdmin",
+  "roles/compute.networkAdmin",
+
+
+
+  #"roles/cloudbuild.builds.builder",
+
+  #"roles/secretmanager.secretAccessor",
   #"roles/source.reader",
   #"roles/artifactregistry.reader",
   #"roles/artifactregistry.writer",
@@ -52,7 +67,7 @@ cicd_sa_role_list = [
   #"roles/serviceusage.serviceUsageAdmin",
   #"roles/cloudsql.admin",
   #"roles/viewer",
-  #"roles/secretmanager.secretAccessor"
+  
   #"roles/compute.subnetworkAdmin"
   #"roles/secretmanager.admin",
   #"roles/secretmanager.secretAccessor",
@@ -60,7 +75,13 @@ cicd_sa_role_list = [
 ]
 
 # (4) Workload Identity
-wi_pool_id = "app-github-cicd-pool"
-wi_pool_name = "app-github-cicd-pool"
-wi_pool_provider_id = "app-github-provider"
-github_repository      = "Mon8Cats/mon-lab-infra"
+infra_wi_pool_id = "infra-cicd-pool"
+infra_wi_pool_name = "infra-cicd-pool"
+infra_wi_pool_provider_id = "infra-provider"
+infra_github_repository      = "Mon8Cats/mon-lab-infra"
+
+
+
+
+# (5) Secret
+github_secret_id = "github_token"

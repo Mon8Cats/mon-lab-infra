@@ -21,12 +21,12 @@ variable "api_list" {
 
 
 # service account
-variable "cicd_sa_name" {
+variable "infra_cicd_sa_name" {
   description = "The ID of the service account to create (must be unique within the project)"
   type        = string
 }
 
-variable "cicd_sa_role_list" {
+variable "infra_cicd_sa_role_list" {
   type        = list(string)
   description = "A list of APIs"
   #default     = ["value1", "value2", "value3"]  # optional default value
@@ -34,22 +34,28 @@ variable "cicd_sa_role_list" {
 
 # workload identity
 
-variable "wi_pool_id" {
+variable "infra_wi_pool_id" {
   description = "The Workload Identity Pool Id"
   type        = string
 }
 
-variable "wi_pool_name" {
+variable "infra_wi_pool_name" {
   description = "The Workload Identity Pool Name"
   type        = string
 }
 
-variable "wi_pool_provider_id" {
+variable "infra_wi_pool_provider_id" {
   description = "The Workload Identity Provider Id"
   type        = string
 }
 
-variable "github_repository" {
+variable "infra_github_repository" {
+  description = "The region for the resources"
+  type        = string
+}
+
+
+variable "github_secret_id" {
   description = "The region for the resources"
   type        = string
 }
