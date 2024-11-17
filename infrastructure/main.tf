@@ -130,6 +130,6 @@ module "github_build_trigger" {
 */
 
 module "github_build_trigger2" {
-  source = "../modules/c09b_cloudbuild_trigger"
+  source = "../modules/c09c_cloudbuild_trigger"
 }
 
