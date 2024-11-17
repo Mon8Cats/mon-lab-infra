@@ -1,9 +1,13 @@
 resource "google_cloudbuild_trigger" "simple_trigger" {
-  name = "simple-trigger"
+  name = "simple-trigger2"
 
-  trigger_template {
-    repo_name   = "mon-lab-infra"
-    branch_name = "main"
+
+  github { 
+    owner = "Mon8Cats" 
+    name = "mon-lab-infra" 
+    push { 
+      branch = "main" 
+      } 
   }
 
   filename = "cloudbuild.yaml" # This tells the trigger to use the cloudbuild.yaml file in your repository
