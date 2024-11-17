@@ -1,20 +1,21 @@
-resource "google_cloudbuildv2_trigger" "github_trigger" {
+resource "google_cloudbuild_trigger" "github_trigger" {
   provider    = google-beta
   project     = var.project_id
   name        = var.trigger_name
-  description = "Trigger for linked GitHub repository"
+  description = "Trigger for GitHub repository"
 
-  # Use the repository block for Cloud Build V2
-  repository {
-    repository = var.repository_id
+  github {
+    owner = var.github_owner
+    name  = var.repository_name
     push {
       branch = var.branch_pattern
     }
   }
 
-  build {
-    filename = var.build_config_file
-  }
+  included_files = ["**/*"]
+  ignored_files  = ["README.md"]
 
+
+  filename = var.build_config_file
   service_account = var.service_account_email
 }

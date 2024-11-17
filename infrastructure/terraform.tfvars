@@ -92,3 +92,6 @@ github_connection_name = "github_connection"
 
 github_repo_uri_infra = "https://github.com/Mon8Cats/mon-lab-infra.git"
 repo_name_in_gcp_infra = "mon-lab-infra"
+
+github_account = "Mon8Cats"
+github_repo_name_infra = "mon-lab-infra"

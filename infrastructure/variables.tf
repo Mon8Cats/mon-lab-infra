@@ -85,3 +85,12 @@ variable "repo_name_in_gcp_infra" {
   type        = string
 }
 
+variable "github_account" {
+  description = "The region for the resources"
+  type        = string
+}
+
+variable "github_repo_name_infra" {
+  description = "The region for the resources"
+  type        = string
+}

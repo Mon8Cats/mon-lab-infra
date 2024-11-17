@@ -69,6 +69,7 @@ module "github_token_secret_access2" {
   service_account_email = local.cloud_build_service_account_email
 }
 
+/*
 module "github_connection" {
   source = "../modules/c07_cloudbuild_connection"
 
@@ -91,16 +92,18 @@ module "github_repository_link" {
   depends_on   = [module.github_connection]
 }
 
+*/
 
 module "github_build_trigger" {
   source = "../modules/c09_cloudbuild_trigger"
 
   project_id            = var.project_id
-  trigger_name          = "github-code-trigger"
-  repository_id         = module.github_repository_link.repository_id
+  trigger_name          = "github-infra-cicd-trigger"
+  github_owner          = var.github_account
+  repository_name       = var.github_repo_name_infra
   branch_pattern        = "^main$"
   build_config_file     = "cloudbuild.yaml"
   service_account_email = local.infra_cicd_service_account_email
 
-  depends_on   = [module.github_repository_link]
+  #depends_on   = [module.github_repository_link]
 }

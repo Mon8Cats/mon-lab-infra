@@ -8,8 +8,13 @@ variable "trigger_name" {
   type        = string
 }
 
-variable "repository_id" {
-  description = "The ID of the linked repository (e.g., 'projects/<project_id>/locations/<region>/connections/<connection_name>/repositories/<repository_name>')"
+variable "github_owner" {
+  description = "The GitHub username or organization"
+  type        = string
+}
+
+variable "repository_name" {
+  description = "The name of the GitHub repository"
   type        = string
 }
 
