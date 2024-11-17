@@ -1,11 +1,15 @@
 
 
+# common #############################################
+
 
 # (1) project id
 #project_id = "my project id"#"mon8cats-cloud-lab"
 #project_number = "650839457214"
 #region     = "my region" # "us-central1"
 #bucket_name = "mon8cats-lab-tf-backend" # unique
+
+
 
 
 # (2) api list
@@ -30,6 +34,19 @@ api_list   = [
     #"cloudresourcemanager.googleapis.com", # Resource Manager API
     # Add or remove APIs as needed
   ]
+
+
+# (5) Secret
+github_secret_id = "github_token"
+
+# (6) github connection
+github_app_installation_id = "55957239"
+github_connection_name = "github_connection"
+
+github_account = "Mon8Cats"
+
+
+# infra ##################################################
 
 
 #(3) infra cicd service account and roles
@@ -77,23 +94,44 @@ infra_cicd_sa_role_list = [
 ]
 
 # (4) Workload Identity
-infra_wi_pool_id = "infra-cicd-pool"
-infra_wi_pool_name = "infra-cicd-pool"
-infra_wi_pool_provider_id = "infra-provider"
+infra_wi_pool_id = "infra-cicd-pool2"
+infra_wi_pool_name = "infra-cicd-pool2"
+infra_wi_pool_provider_id = "infra-provider2"
 infra_github_repository      = "Mon8Cats/mon-lab-infra"
 
 
 
-
-# (5) Secret
-github_secret_id = "github_token"
-
-# (6) github connection
-github_app_installation_id = "55957239"
-github_connection_name = "github_connection"
-
 github_repo_uri_infra = "https://github.com/Mon8Cats/mon-lab-infra.git"
 repo_name_in_gcp_infra = "mon-lab-infra"
 
-github_account = "Mon8Cats"
+
 github_repo_name_infra = "mon-lab-infra"
+
+
+#############################################
+app_cicd_sa_name = "app-cicd-sa"
+
+app_cicd_sa_role_list = [
+  "roles/cloudbuild.builds.editor",
+  "roles/storage.admin",
+  "roles/secretmanager.secretAccessor",
+  "roles/iam.serviceAccountUser",
+  "roles/resourcemanager.projectIamAdmin",
+  "roles/viewer",
+  "roles/compute.admin",
+  "roles/iam.serviceAccountKeyAdmin",
+  "roles/compute.networkAdmin",
+  "roles/source.reader",
+  "roles/cloudbuild.builds.builder",
+]
+
+app_wi_pool_id = "app-cicd-pool"
+app_wi_pool_name = "app-cicd-pool"
+app_wi_pool_provider_id = "app-provider"
+app_github_repository      = "Mon8Cats/mon-lab-app"
+
+github_repo_name_app = "mon-lab-app"
+
+github_repo_uri_app = "https://github.com/Mon8Cats/mon-lab-app.git"
+repo_name_in_gcp_app = "mon-lab-app"
+

@@ -60,3 +60,23 @@ module "infra_cicd_pipeline" {
   depends_on   = [module.github_connection]
 }
 
+
+module "app_cicd_pipeline" {
+  source = "../modules/d11_cicd_pipeline_wrapper"
+
+  project_id = var.project_id
+  region = var.region
+  cicd_sa_name = var.app_cicd_sa_name
+  cicd_sa_role_list = var.app_cicd_sa_role_list
+  wi_pool_id = var.app_wi_pool_id
+  wi_pool_name = var.app_wi_pool_name
+  wi_pool_provider_id = var.app_wi_pool_provider_id
+  github_repository = var.app_github_repository
+  github_secret_id = var.github_secret_id
+  parent_connection = module.github_connection.connection_name
+  name_gcp_repo = var.repo_name_in_gcp_app
+  remote_uri_repo = var.github_repo_uri_app 
+
+
+  depends_on   = [module.github_connection]
+}

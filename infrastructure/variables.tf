@@ -94,3 +94,51 @@ variable "github_repo_name_infra" {
   description = "The region for the resources"
   type        = string
 }
+
+# app #############################
+variable "app_cicd_sa_name" {
+  description = "The ID of the service account to create (must be unique within the project)"
+  type        = string
+}
+
+variable "app_cicd_sa_role_list" {
+  type        = list(string)
+  description = "A list of APIs"
+  #default     = ["value1", "value2", "value3"]  # optional default value
+}
+
+variable "app_wi_pool_id" {
+  description = "The Workload Identity Pool Id"
+  type        = string
+}
+
+variable "app_wi_pool_name" {
+  description = "The Workload Identity Pool Name"
+  type        = string
+}
+
+variable "app_wi_pool_provider_id" {
+  description = "The Workload Identity Provider Id"
+  type        = string
+}
+
+variable "app_github_repository" {
+  description = "The region for the resources"
+  type        = string
+}
+
+variable "github_repo_uri_app" {
+  description = "The region for the resources"
+  type        = string
+}
+
+variable "repo_name_in_gcp_app" {
+  description = "The region for the resources"
+  type        = string
+}
+
+
+variable "github_repo_name_app" {
+  description = "The region for the resources"
+  type        = string
+}
