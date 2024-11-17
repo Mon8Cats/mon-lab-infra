@@ -52,7 +52,7 @@ module "infra_cicd_pipeline" {
   wi_pool_provider_id = var.infra_wi_pool_provider_id
   github_repository = var.infra_github_repository
   github_secret_id = var.github_secret_id
-  parent_connection = modle.github_connection.connection_name
+  parent_connection = module.github_connection.connection_name
   name_gcp_repo = var.repo_name_in_gcp_infra
   remote_uri_repo = var.github_repo_uri_infra 
 
