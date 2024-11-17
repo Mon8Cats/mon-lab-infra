@@ -45,13 +45,14 @@ infra_cicd_sa_role_list = [
   "roles/compute.admin",
   "roles/iam.serviceAccountKeyAdmin",
   "roles/compute.networkAdmin",
+  "roles/source.reader",
 
 
 
   #"roles/cloudbuild.builds.builder",
 
   #"roles/secretmanager.secretAccessor",
-  #"roles/source.reader",
+  
   #"roles/artifactregistry.reader",
   #"roles/artifactregistry.writer",
   #"roles/artifactregistry.admin",
