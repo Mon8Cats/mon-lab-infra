@@ -45,7 +45,7 @@ variable "github_repository" {
 }
 
 # Secret Token Access
-variable "secret_id" {
+variable "github_secret_id" {
   description = "ID of the GitHub token secret in Secret Manager"
   type        = string
 }

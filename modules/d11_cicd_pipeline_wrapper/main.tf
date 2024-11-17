@@ -1,7 +1,7 @@
 
 # (3) create a service account for CICD
 module "cicd_service_account" {
-  source               = "./b03_service_account"
+  source               = "../b03_service_account"
   project_id           = var.project_id
   service_account_name = var.cicd_sa_name
   display_name         = "CICD Service Account"
@@ -14,7 +14,7 @@ module "cicd_service_account" {
 
 # (4) create workload identity pool
 module "workload_identity" {
-  source           = "./b04_workload_identity"
+  source           = "../b04_workload_identity"
 
   project_id = var.project_id
   wi_pool_id = var.wi_pool_id
@@ -31,7 +31,7 @@ module "workload_identity" {
 
 # (6) secret token access
 module "github_token_secret_access" {
-  source              = "./c06_secret_access"
+  source              = "../c06_secret_access"
   secret_id = var.github_secret_id
   service_account_email = module.cicd_service_account.service_account_email
 }
@@ -42,10 +42,11 @@ module "github_token_secret_access" {
 
 # (8) repository link
 module "github_repository_link" {
-  source = "./c08_cloudbuild_repository_link"
+  source = "../c08_cloudbuild_repository_link"
+
   region  = var.region
   parent_connection  = var.parent_connection
-  name_repo_gcp = var.name_repo_gcp
+  name_gcp_repo = var.name_gcp_repo
   remote_uri_repo = var.remote_uri_repo
 
 }
