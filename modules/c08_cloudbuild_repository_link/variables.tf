@@ -16,12 +16,12 @@ variable "parent_connection" {
 }
 
 
-variable "repo_name_in_gcp" {
+variable "name_gcp_repo" {
   description = "ID of the GitHub token secret in Secret Manager"
   type        = string
 }
 
-variable "remote_uri" {
+variable "remote_uri_repo" {
   description = "Custom service account email for Cloud Build"
   type        = string
 }
