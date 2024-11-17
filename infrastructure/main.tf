@@ -97,7 +97,7 @@ module "github_build_trigger" {
 
   project_id            = var.project_id
   trigger_name          = "github-code-trigger"
-  repository_id         = module.github_connection.repository_id
+  repository_id         = module.github_repository_link.repository_id
   branch_pattern        = "^main$"
   build_config_file     = "cloudbuild.yaml"
   service_account_email = local.infra_cicd_service_account_email
