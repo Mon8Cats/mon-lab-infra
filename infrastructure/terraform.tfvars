@@ -46,6 +46,7 @@ infra_cicd_sa_role_list = [
   "roles/iam.serviceAccountKeyAdmin",
   "roles/compute.networkAdmin",
   "roles/source.reader",
+  "roles/cloudbuild.builds.builder",
 
 
 

@@ -1,5 +1,6 @@
-resource "google_cloudbuild_trigger" "simple_trigger" {
-  name = "simple-trigger2"
+resource "google_cloudbuild_trigger" "github_trigger" {
+  name = "github-trigger111"
+  location = "global" 
 
 
   github { 
@@ -17,3 +18,6 @@ resource "google_cloudbuild_trigger" "simple_trigger" {
 
 # no error but i can't see trigger
 # global trigger
+
+
+# you need connection1
