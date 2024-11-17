@@ -101,4 +101,6 @@ module "github_build_trigger" {
   branch_pattern        = "^main$"
   build_config_file     = "cloudbuild.yaml"
   service_account_email = local.infra_cicd_service_account_email
+
+  depends_on   = [module.github_repository_link]
 }
