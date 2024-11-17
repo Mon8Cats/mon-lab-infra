@@ -40,7 +40,7 @@ module "github_connection" {
   depends_on   = [module.github_token_secret_access2]
 }
 
-module "github_connection" {
+module "infra_cicd_pipeline" {
   source = "../modules/d11_cicd_pipeline_wrapper"
 
   project_id = var.project_id
@@ -51,10 +51,11 @@ module "github_connection" {
   wi_pool_name = var.infra_wi_pool_name
   wi_pool_provider_id = var.infra_wi_pool_provider_id
   github_repository = var.infra_github_repository
-  secret_id = var.github_secret_id
-  parent_connection = module.github_connection.connection_name
+  github_secret_id = var.github_secret_id
+  parent_connection = modle.github_connection.connection_name
   name_gcp_repo = var.repo_name_in_gcp_infra
-  remote_uri_repo = var.github_repo_uri_infra
+  remote_uri_repo = var.github_repo_uri_infra 
+
 
   depends_on   = [module.github_connection]
 }
