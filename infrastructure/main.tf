@@ -1,5 +1,6 @@
 /* No space around =
 export TF_VAR_project_id="mon-cloud-lab"
+export TF_VAR_project_number="583630435909"
 export TF_VAR_region="us-central1"
 echo $TF_VAR_project_id
 echo $TF_VAR_region
@@ -77,13 +78,15 @@ module "github_connection" {
   connection_name = var.github_connection_name
   secret_id = var.github_secret_id
 
-  # Pass the providers explicitly
-  /*
-  providers = {
-    google      = google
-    google-beta = google-beta
-  }
-  */
-
   depends_on   = [module.github_token_secret_access2]
+}
+
+module "github_repository" {
+  source = "../modules/c08_cloudbuild_repository"
+  region                   = var.region
+  repo_name_in_gcp = var.repo_name_in_gcp_infra
+  remote_uri = var.github_repo_uri_infra
+  parent_connection  = module.github_connection.connection_name
+
+  depends_on   = [module.github_connection]
 }

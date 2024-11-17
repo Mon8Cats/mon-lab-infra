@@ -74,3 +74,14 @@ variable "github_app_installation_id" {
   description = "The region for the resources"
   type        = string
 }
+
+variable "github_repo_uri_infra" {
+  description = "The region for the resources"
+  type        = string
+}
+
+variable "repo_name_in_gcp_infra" {
+  description = "The region for the resources"
+  type        = string
+}
+
