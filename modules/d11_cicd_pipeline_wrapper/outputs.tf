@@ -18,12 +18,12 @@ output "assigned_roles" {
 # Workload Identity
 output "wi_pool_id" {
   description = "The ID of Workload Identity Pool"
-  value       = module.workload_identity.github_pool.id
+  value       = module.workload_identity.github_pool.wi_pool_id
 }
 
 output "wi_pool_provider_id" {
   description = "The ID of Workload Identity Pool Provider"
-  value       = module.workload_identity.github_provider.id
+  value       = module.workload_identity.github_provider.wi_pool_provider_id
 }
 
 # Secret Token Access
