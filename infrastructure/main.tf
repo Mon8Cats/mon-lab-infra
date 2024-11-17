@@ -81,12 +81,24 @@ module "github_connection" {
   depends_on   = [module.github_token_secret_access2]
 }
 
-module "github_repository" {
-  source = "../modules/c08_cloudbuild_repository"
-  region                   = var.region
+module "github_repository_link" {
+  source = "../modules/c08_cloudbuild_repository_link"
+  region  = var.region
   repo_name_in_gcp = var.repo_name_in_gcp_infra
   remote_uri = var.github_repo_uri_infra
   parent_connection  = module.github_connection.connection_name
 
   depends_on   = [module.github_connection]
+}
+
+
+module "github_build_trigger" {
+  source = "../modules/c09_cloudbuild_trigger"
+
+  project_id            = var.project_id
+  trigger_name          = "github-code-trigger"
+  repository_id         = module.github_connection.repository_id
+  branch_pattern        = "^main$"
+  build_config_file     = "cloudbuild.yaml"
+  service_account_email = local.infra_cicd_service_account_email
 }
