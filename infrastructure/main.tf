@@ -110,12 +110,12 @@ module "github_build_trigger" {
 }
 */
 
-
+/*
 module "github_build_trigger" {
   source = "../modules/c09a_cloudbuild_trigger"
 
   project_id            = var.project_id
-  trigger_name          = "github-infra-cicd-trigger"
+  trigger_name          = "infra-cicd-trigger"
   #github_owner          = var.github_account
   repository_name       = var.github_repo_name_infra
   branch_pattern        = "^main$"
@@ -125,3 +125,11 @@ module "github_build_trigger" {
 
   #depends_on   = [module.github_repository_link]
 }
+
+#https://github.com/GoogleCloudPlatform/terraformer/releases/download/0.8.24/#terraformer-all-linux-amd64
+*/
+
+module "github_build_trigger2" {
+  source = "../modules/c09b_cloudbuild_trigger"
+}
+
