@@ -62,6 +62,11 @@ module "github_token_secret_access" {
 #  --project="mon-cloud-lab"
 #gcloud secrets versions access latest --secret="github_token" --project="mon-cloud-lab"
 
+module "github_token_secret_access2" {
+  source              = "../modules/c06_secret_access"
+  secret_id = var.github_secret_id
+  service_account_email = local.cloud_build_service_account_email
+}
 
 module "github_connection" {
   source = "../modules/c07_cloudbuild_connection"
@@ -73,8 +78,12 @@ module "github_connection" {
   secret_id = var.github_secret_id
 
   # Pass the providers explicitly
+  /*
   providers = {
     google      = google
     google-beta = google-beta
   }
+  */
+
+  depends_on   = [module.github_token_secret_access2]
 }
