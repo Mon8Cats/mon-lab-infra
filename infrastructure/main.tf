@@ -98,23 +98,23 @@ module "cicd_pipeline_app" {
 # (6) secret db_user/db_password access
 
 module "secret_access_db_user_infra" {
-  source              = "../c06_secret_access"
+  source              = "../modules/c06_secret_access"
   secret_id = var.secret_id_db_user
   service_account_email = module.cicd_pipeline_infra.service_account_email
 }
 module "secret_access_db_user_app" {
-  source              = "../c06_secret_access"
+  source              = "../modules/c06_secret_access"
   secret_id = var.secret_id_db_user
   service_account_email = module.cicd_pipeline_app.service_account_email
 }
 
 module "secret_access_db_password_infra" {
-  source              = "../c06_secret_access"
+  source              = "../modules/c06_secret_access"
   secret_id = var.secret_id_db_password
   service_account_email = module.cicd_pipeline_infra.service_account_email
 }
 module "secret_access_db_password_app" {
-  source              = "../c06_secret_access"
+  source              = "../modules/c06_secret_access"
   secret_id = var.secret_id_db_password
   service_account_email = module.cicd_pipeline_app.service_account_email
 }
