@@ -37,7 +37,9 @@ api_list   = [
 
 
 # (5) Secret
-github_secret_id = "github_token"
+secret_id_github = "github_token"
+secret_id_db_user = "db_user"
+secret_id_db_password = "db_password"
 
 # (6) github connection
 github_app_installation_id = "55957239"
@@ -50,9 +52,9 @@ github_account = "Mon8Cats"
 
 
 #(3) infra cicd service account and roles
-infra_cicd_sa_name = "infra-cicd-sa"
+cicd_sa_name_infra = "infra-cicd-sa"
 
-infra_cicd_sa_role_list = [
+cicd_sa_role_list_infra = [
   "roles/cloudbuild.builds.editor",
   "roles/storage.admin",
   "roles/secretmanager.secretAccessor",
@@ -94,10 +96,10 @@ infra_cicd_sa_role_list = [
 ]
 
 # (4) Workload Identity
-infra_wi_pool_id = "infra-cicd-pool2"
-infra_wi_pool_name = "infra-cicd-pool2"
-infra_wi_pool_provider_id = "infra-provider2"
-infra_github_repository      = "Mon8Cats/mon-lab-infra"
+wi_pool_id_infra = "infra-cicd-pool2"
+wi_pool_name_infra = "infra-cicd-pool2"
+wi_pool_provider_id_infra = "infra-provider2"
+github_repository_infra      = "Mon8Cats/mon-lab-infra"
 
 
 
@@ -109,9 +111,9 @@ github_repo_name_infra = "mon-lab-infra"
 
 
 #############################################
-app_cicd_sa_name = "app-cicd-sa"
+cicd_sa_name_app = "app-cicd-sa"
 
-app_cicd_sa_role_list = [
+cicd_sa_role_list_app = [
   "roles/cloudbuild.builds.editor",
   "roles/storage.admin",
   "roles/secretmanager.secretAccessor",
@@ -125,10 +127,10 @@ app_cicd_sa_role_list = [
   "roles/cloudbuild.builds.builder",
 ]
 
-app_wi_pool_id = "app-cicd-pool"
-app_wi_pool_name = "app-cicd-pool"
-app_wi_pool_provider_id = "app-provider"
-app_github_repository      = "Mon8Cats/mon-lab-app"
+wi_pool_id_app = "app-cicd-pool"
+wi_pool_name_app = "app-cicd-pool"
+wi_pool_provider_id_app = "app-provider"
+github_repository_app      = "Mon8Cats/mon-lab-app"
 
 github_repo_name_app = "mon-lab-app"
 

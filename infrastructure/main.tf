@@ -17,12 +17,25 @@ module "enable_apis" {
 module "github_token_secret" {
   source              = "../modules/c05_secret_manager"
   project_id          = var.project_id
-  secret_id         = var.github_secret_id
+  secret_id         = var.secret_id_github
 }
+
+module "secret_db_user" {
+  source              = "../modules/c05_secret_manager"
+  project_id          = var.project_id
+  secret_id         = var.secret_id_db_user
+}
+
+module "secret_db_password" {
+  source              = "../modules/c05_secret_manager"
+  project_id          = var.project_id
+  secret_id         = var.secret_id_db_password
+}
+
 
 module "github_token_secret_access2" {
   source              = "../modules/c06_secret_access"
-  secret_id = var.github_secret_id
+  secret_id = var.secret_id_github
   service_account_email = local.cloud_build_service_account_email
 }
 
@@ -35,23 +48,23 @@ module "github_connection" {
   region                   = var.region
   github_app_installation_id = var.github_app_installation_id
   connection_name = var.github_connection_name
-  secret_id = var.github_secret_id
+  secret_id = var.secret_id_github
 
   depends_on   = [module.github_token_secret_access2]
 }
 
-module "infra_cicd_pipeline" {
+module "cicd_pipeline_infra" {
   source = "../modules/d11_cicd_pipeline_wrapper"
 
   project_id = var.project_id
   region = var.region
-  cicd_sa_name = var.infra_cicd_sa_name
-  cicd_sa_role_list = var.infra_cicd_sa_role_list
-  wi_pool_id = var.infra_wi_pool_id
-  wi_pool_name = var.infra_wi_pool_name
-  wi_pool_provider_id = var.infra_wi_pool_provider_id
-  github_repository = var.infra_github_repository
-  github_secret_id = var.github_secret_id
+  cicd_sa_name = var.cicd_sa_name_infra
+  cicd_sa_role_list = var.cicd_sa_role_list_infra
+  wi_pool_id = var.wi_pool_id_infra
+  wi_pool_name = var.wi_pool_name_infra
+  wi_pool_provider_id = var.wi_pool_provider_id_infra
+  github_repository = var.github_repository_infra
+  github_secret_id = var.secret_id_github
   parent_connection = module.github_connection.connection_name
   name_gcp_repo = var.repo_name_in_gcp_infra
   remote_uri_repo = var.github_repo_uri_infra 
@@ -61,22 +74,47 @@ module "infra_cicd_pipeline" {
 }
 
 
-module "app_cicd_pipeline" {
+module "cicd_pipeline_app" {
   source = "../modules/d11_cicd_pipeline_wrapper"
 
   project_id = var.project_id
   region = var.region
-  cicd_sa_name = var.app_cicd_sa_name
-  cicd_sa_role_list = var.app_cicd_sa_role_list
-  wi_pool_id = var.app_wi_pool_id
-  wi_pool_name = var.app_wi_pool_name
-  wi_pool_provider_id = var.app_wi_pool_provider_id
-  github_repository = var.app_github_repository
-  github_secret_id = var.github_secret_id
+  cicd_sa_name = var.cicd_sa_name_app
+  cicd_sa_role_list = var.cicd_sa_role_list_app
+  wi_pool_id = var.wi_pool_id_app
+  wi_pool_name = var.wi_pool_name_app
+  wi_pool_provider_id = var.wi_pool_provider_id_app
+  github_repository = var.github_repository_app
+  github_secret_id = var.secret_id_github
   parent_connection = module.github_connection.connection_name
   name_gcp_repo = var.repo_name_in_gcp_app
   remote_uri_repo = var.github_repo_uri_app 
 
 
   depends_on   = [module.github_connection]
+}
+
+
+# (6) secret db_user/db_password access
+
+module "secret_access_db_user_infra" {
+  source              = "../c06_secret_access"
+  secret_id = var.secret_id_db_user
+  service_account_email = module.cicd_pipeline_infra.service_account_email
+}
+module "secret_access_db_user_app" {
+  source              = "../c06_secret_access"
+  secret_id = var.secret_id_db_user
+  service_account_email = module.cicd_pipeline_app.service_account_email
+}
+
+module "secret_access_db_password_infra" {
+  source              = "../c06_secret_access"
+  secret_id = var.secret_id_db_password
+  service_account_email = module.cicd_pipeline_infra.service_account_email
+}
+module "secret_access_db_password_app" {
+  source              = "../c06_secret_access"
+  secret_id = var.secret_id_db_password
+  service_account_email = module.cicd_pipeline_app.service_account_email
 }
