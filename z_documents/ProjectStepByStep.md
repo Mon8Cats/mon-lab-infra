@@ -1,5 +1,22 @@
 # Build CICD Pipelines for GCP CLOUD RUN application using CLOUD SQL
 
+- create two github repositories (infra, app)
+- create a GCP projects
+- set a budget alert for my GCP account
+- add a bucket creating terraform config in the infra repository
+- open the cloud shell
+- clone the github repository (infra)
+- set environment variables
+- run the terraform config and create a bucket for terraform backend
+- (terraform init, validate, plan, apply)
+- (terraform --version # cloud shell has old version. stick to it?)
+- check bucket
+
+
+
+
+
+
 ## A. Create a GCP Projects and GitHub Repositories
 
 - Create a GCP Project.

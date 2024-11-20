@@ -2,7 +2,7 @@
 # export TF_VAR_region="my-gcp-project-region"
 
 
-module "eanble_apis" {
+module "enable_apis" {
   source                  = "../modules/a01_enable_apis"
   project_id  = var.project_id
   api_services = var.pre_api_list
