@@ -9,4 +9,4 @@ pre_api_list   = [
     "storage.googleapis.com",
 ]
 
-bucket_name = "mon8cats-lab-tf-backend" # globally unique
+bucket_name = "montealab-tf-backend" # globally unique
