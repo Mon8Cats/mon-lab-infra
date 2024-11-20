@@ -1,5 +1,5 @@
 
-# project info
+# common ##############################################
 variable "project_id" {
   description = "Project ID for the GCP project"
   type        = string
@@ -25,47 +25,12 @@ variable "api_list" {
 }
 
 
-# service account
-variable "infra_cicd_sa_name" {
-  description = "The ID of the service account to create (must be unique within the project)"
-  type        = string
-}
-
-variable "infra_cicd_sa_role_list" {
-  type        = list(string)
-  description = "A list of APIs"
-  #default     = ["value1", "value2", "value3"]  # optional default value
-}
-
-# workload identity
-
-variable "infra_wi_pool_id" {
-  description = "The Workload Identity Pool Id"
-  type        = string
-}
-
-variable "infra_wi_pool_name" {
-  description = "The Workload Identity Pool Name"
-  type        = string
-}
-
-variable "infra_wi_pool_provider_id" {
-  description = "The Workload Identity Provider Id"
-  type        = string
-}
-
-variable "infra_github_repository" {
-  description = "The region for the resources"
-  type        = string
-}
-
-
 variable "github_connection_name" {
   description = "The region for the resources"
   type        = string
 }
 
-variable "github_secret_id" {
+variable "secret_id_github" {
   description = "The region for the resources"
   type        = string
 }
@@ -74,6 +39,56 @@ variable "github_app_installation_id" {
   description = "The region for the resources"
   type        = string
 }
+
+variable "github_account" {
+  description = "The region for the resources"
+  type        = string
+}
+
+variable "secret_id_db_user" {
+  description = "The region for the resources"
+  type        = string
+}
+
+variable "secret_id_db_password" {
+  description = "The region for the resources"
+  type        = string
+}
+
+# infra ##############################
+variable "cicd_sa_name_infra" {
+  description = "The ID of the service account to create (must be unique within the project)"
+  type        = string
+}
+
+variable "cicd_sa_role_list_infra" {
+  type        = list(string)
+  description = "A list of APIs"
+  #default     = ["value1", "value2", "value3"]  # optional default value
+}
+
+# workload identity
+
+variable "wi_pool_id_infra" {
+  description = "The Workload Identity Pool Id"
+  type        = string
+}
+
+variable "wi_pool_name_infra" {
+  description = "The Workload Identity Pool Name"
+  type        = string
+}
+
+variable "wi_pool_provider_id_infra" {
+  description = "The Workload Identity Provider Id"
+  type        = string
+}
+
+variable "github_repository_infra" {
+  description = "The region for the resources"
+  type        = string
+}
+
 
 variable "github_repo_uri_infra" {
   description = "The region for the resources"
@@ -85,10 +100,7 @@ variable "repo_name_in_gcp_infra" {
   type        = string
 }
 
-variable "github_account" {
-  description = "The region for the resources"
-  type        = string
-}
+
 
 variable "github_repo_name_infra" {
   description = "The region for the resources"
@@ -96,33 +108,35 @@ variable "github_repo_name_infra" {
 }
 
 # app #############################
-variable "app_cicd_sa_name" {
+variable "cicd_sa_name_app" {
   description = "The ID of the service account to create (must be unique within the project)"
   type        = string
 }
 
-variable "app_cicd_sa_role_list" {
+variable "cicd_sa_role_list_app" {
   type        = list(string)
   description = "A list of APIs"
   #default     = ["value1", "value2", "value3"]  # optional default value
 }
 
-variable "app_wi_pool_id" {
+
+
+variable "wi_pool_id_app" {
   description = "The Workload Identity Pool Id"
   type        = string
 }
 
-variable "app_wi_pool_name" {
+variable "wi_pool_name_app" {
   description = "The Workload Identity Pool Name"
   type        = string
 }
 
-variable "app_wi_pool_provider_id" {
+variable "wi_pool_provider_id_app" {
   description = "The Workload Identity Provider Id"
   type        = string
 }
 
-variable "app_github_repository" {
+variable "github_repository_app" {
   description = "The region for the resources"
   type        = string
 }

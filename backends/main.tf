@@ -8,8 +8,6 @@ module "eanble_apis" {
   api_services = var.pre_api_list
 }
 
-
-/*
 module "terraform_backend_bucket" {
   source                  = "../modules/a02_gcs_bucket"
   project_id              = var.project_id
@@ -29,4 +27,3 @@ module "terraform_backend_bucket" {
 
   depends_on   = [module.enable_apis]
 }
-*/
