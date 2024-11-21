@@ -96,9 +96,9 @@ cicd_sa_role_list_infra = [
 ]
 
 # (4) Workload Identity
-wi_pool_id_infra = "infra-cicd-pool2"
-wi_pool_name_infra = "infra-cicd-pool2"
-wi_pool_provider_id_infra = "infra-provider2"
+wi_pool_id_infra = "infra-cicd-pool-123"
+wi_pool_name_infra = "infra-cicd-pool-123"
+wi_pool_provider_id_infra = "infra-provider-123"
 github_repository_infra      = "Mon8Cats/mon-lab-infra"
 
 
@@ -127,9 +127,9 @@ cicd_sa_role_list_app = [
   "roles/cloudbuild.builds.builder",
 ]
 
-wi_pool_id_app = "app-cicd-pool"
-wi_pool_name_app = "app-cicd-pool"
-wi_pool_provider_id_app = "app-provider"
+wi_pool_id_app = "app-cicd-pool-123"
+wi_pool_name_app = "app-cicd-pool-123"
+wi_pool_provider_id_app = "app-provider-123"
 github_repository_app      = "Mon8Cats/mon-lab-app"
 
 github_repo_name_app = "mon-lab-app"
