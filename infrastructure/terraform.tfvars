@@ -14,20 +14,19 @@
 
 # (2) api list
 api_list   = [
-    "cloudresourcemanager.googleapis.com", # manually enabled
+    "cloudresourcemanager.googleapis.com",
     "storage.googleapis.com",
-    "iam.googleapis.com", # to create service account
+    "iam.googleapis.com",
     "cloudbuild.googleapis.com",
-    "secretmanager.googleapis.com", # manually enabled
+    "secretmanager.googleapis.com",
+    "compute.googleapis.com", 
+    "artifactregistry.googleapis.com",
+    "run.googleapis.com",  
 
-    #"iamcredentials.googleapis.com",
-    #"cloudbuild.googleapis.com",
-    #"artifactregistry.googleapis.com",
-    
+    #"iamcredentials.googleapis.com",  
     #"cloudresourcemanager.googleapis.com",
-
-    #"compute.googleapis.com",          # Compute Engine API
-    #"run.googleapis.com",              # Cloud Run API
+    # Compute Engine API
+    # Cloud Run API
     #"cloudfunctions.googleapis.com",   # Cloud Functions API
     #"container.googleapis.com",        # Kubernetes Engine API
     #"appengine.googleapis.com",        # App Engine Admin API

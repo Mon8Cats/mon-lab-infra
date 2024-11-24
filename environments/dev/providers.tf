@@ -8,8 +8,8 @@ terraform {
     }
   }
   backend "gcs" {
-    bucket = "win-gke-infra"
-    prefix = "dev/gke-cluster"    
+    bucket = "skyroot-tf-backend"
+    prefix = "env/dev"    
   }
 }
 
